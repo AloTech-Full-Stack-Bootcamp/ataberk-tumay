@@ -24,7 +24,7 @@ fs.readFile('./odev/employees.json', (err, data) => {
   let newData = JSON.stringify(dataRaw);
   fs.writeFile('./odev/employees.json', newData, (err) => {
     if (err) throw err;
-    console.log('The file has been saved!');
+    console.log('The file has been saved!'+ newData);
   });
   fs.unlink('odev/employees.json', (err) => {
     if (err) throw err;
