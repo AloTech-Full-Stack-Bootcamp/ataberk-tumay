@@ -1,0 +1,12 @@
+ABORT READFILE
+
+In order to abort an ongoing fileHandler event, we must have an abortable fileHandler event.
+In order to create an abortable fileHandler event, we must first create an abort controller using const controller = new AbortController();.
+After that we must assign the controller.signal to a signal variable. We will then pass that value while creating the readFile event.
+readFile(fileInfo[0].name, { signal }, (err, buf) => {...
+After we pass the signal to the readFile event we can abort this event by calling controller.abort(); anywhere we want.
+
+ALTERNATIVE TO READFILE FOR MORE EFFICIENCY
+
+According to the official documents fs.readFile() function buffers the entire file. Instead of doing it like that, using fs.createReadStream()
+is more efficient in terms of memory usage. So the official documents recommends using fs.createReadStream() whenever possible.
