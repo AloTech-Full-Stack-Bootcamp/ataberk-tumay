@@ -1,0 +1,3 @@
+Koa.js is created by the same team that created Express.js. The aim of koa.js is to be smaller, more expressive and more robust than express. 
+They are using async functions instead of callbacks which greatly helps with error handling and helps in avoiding callback hell. 
+Koa is designed to be lightweight and more readable.
