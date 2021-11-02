@@ -32,9 +32,14 @@ app.get("/about", (req, res) => {
 app.get("/add_post", (req, res) => {
   res.render("add_post");
 });
-app.get("/post", (req, res) => {
-  res.render("post");
+app.get("/posts/:id", async (req,res)=>{
+  let id = req.params.id;
+  let post = await Post.findById(id);
+  res.render("post", {
+    post
+  });
 });
+
 app.post("/posts", async (req, res) => {
   await Post.create({
     title: req.body.title,
