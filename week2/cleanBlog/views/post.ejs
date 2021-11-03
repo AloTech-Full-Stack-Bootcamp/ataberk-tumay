@@ -23,8 +23,8 @@
               <a href="#">Ataberk Tümay</a>
               on <%= post.dateCreated.toLocaleString() %></span>
               <div style="display:flex; gap:10px; margin-top: 10px;">
-                <button style="background-color: lightblue; border: 1px solid #333; border-radius: 2px; font-size: 25px;">Update</button>
-                <button style="background-color: tomato; border: 1px solid #333; border-radius: 2px; font-size: 25px;">Delete</button>
+                <a href="/posts/edit/<%= post._id %>" style="color:#333; background-color: lightblue; border: 1px solid #333; border-radius: 2px; font-size: 25px; text-decoration:none; padding: 5px;">Update</a>
+                <a href="/posts/<%= post._id %>?_method=DELETE" style="color:#333; background-color: tomato; border: 1px solid #333; border-radius: 2px; font-size: 25px; text-decoration:none; padding: 5px;">Delete</a>
               </div>
    
           </div>
