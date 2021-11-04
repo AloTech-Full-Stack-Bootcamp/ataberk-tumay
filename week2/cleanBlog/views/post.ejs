@@ -24,7 +24,7 @@
               on <%= post.dateCreated.toLocaleString() %></span>
               <div style="display:flex; gap:10px; margin-top: 10px;">
                 <a href="/posts/edit/<%= post._id %>" style="color:#333; background-color: lightblue; border: 1px solid #333; border-radius: 2px; font-size: 25px; text-decoration:none; padding: 5px;">Update</a>
-                <a href="/posts/<%= post._id %>?_method=DELETE" style="color:#333; background-color: tomato; border: 1px solid #333; border-radius: 2px; font-size: 25px; text-decoration:none; padding: 5px;">Delete</a>
+                <a href="/posts/<%= post._id %>?_method=DELETE" onClick="return confirm(`Are you sure?`);" style="color:#333; background-color: tomato; border: 1px solid #333; border-radius: 2px; font-size: 25px; text-decoration:none; padding: 5px;">Delete</a>
               </div>
    
           </div>
