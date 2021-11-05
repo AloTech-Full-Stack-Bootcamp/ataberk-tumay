@@ -21,7 +21,7 @@ const {
 app.set("view engine", "ejs");
 
 //MONGODB CONNECTION
-mongoose.connect("mongodb://localhost/cleanblog-db", {
+mongoose.connect("mongodb+srv://ataberktumay:EMUXVIuFWr3G7Q2H@ataberkalotech.eamgu.mongodb.net/AtaberkAlotech?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -37,7 +37,7 @@ app.use(
 );
 
 //ROUTES
-app.get("/",   getAllPosts);
+app.get("/", getAllPosts);
 app.get("/about", getAbout);
 app.get("/add_post", getAddPost);
 app.get("/posts/:id", getPost);
