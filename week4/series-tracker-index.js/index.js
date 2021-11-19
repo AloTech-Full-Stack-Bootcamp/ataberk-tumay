@@ -17,7 +17,7 @@ export function SeriesTracker(series) {
       if (!this.lastSerie) {
         this.lastSerie = serie;
       } else {
-        if (this.lastSerie.finishedDate < serie.finishedDate) {
+        if (new Date(this.lastSerie.finishedDate) < new Date(serie.finishedDate)) {
           this.lastSerie = serie;
         }
       }
