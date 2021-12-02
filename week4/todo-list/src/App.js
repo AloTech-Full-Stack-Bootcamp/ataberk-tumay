@@ -1,4 +1,4 @@
-import React, { useState , useEffect} from "react";
+import React, { useState } from "react";
 //css
 import "./App.css";
 //components
@@ -10,9 +10,6 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState("all");
 
-  useEffect(()=>{
-    console.log(todos);
-  },[todos]);
 
   return (
     <div className="App">

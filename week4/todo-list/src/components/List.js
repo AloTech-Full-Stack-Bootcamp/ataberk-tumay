@@ -42,12 +42,23 @@ export default function List({ todos, setTodos, filter }) {
     });
     setTodos(newArray);
   }
-
+  function toggleAll() {
+    let newTodos = [...todos];
+    if (newTodos.some((item) => item.completed === false)) {
+      newTodos.map((item) => (item.completed = true));
+      setTodos(newTodos);
+    } else if (newTodos.every((item) => item.completed === true)) {
+      newTodos.map((item) => (item.completed = false));
+      setTodos(newTodos);
+    }
+  }
   return (
     <>
       <section className="main">
         <input className="toggle-all" type="checkbox" />
-        <label htmlFor="toggle-all">Mark all as complete</label>
+        <label onClick={toggleAll} htmlFor="toggle-all">
+          Mark all as complete
+        </label>
 
         <ul className="todo-list">
           {todos
@@ -75,7 +86,7 @@ export default function List({ todos, setTodos, filter }) {
                     />
                     {todo.editMode ? (
                       <input
-                        id = "editMode"
+                        id="editMode"
                         type="text"
                         name="todo"
                         value={todo.name}
