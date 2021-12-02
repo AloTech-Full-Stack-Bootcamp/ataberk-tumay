@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/ataberk-tumay/static/css/main.000b55a6.chunk.css",
-    "main.js": "/ataberk-tumay/static/js/main.6f60a1da.chunk.js",
+    "main.js": "/ataberk-tumay/static/js/main.8f4e0502.chunk.js",
     "runtime-main.js": "/ataberk-tumay/static/js/runtime-main.7a7671c3.js",
-    "static/js/2.96d90df0.chunk.js": "/ataberk-tumay/static/js/2.96d90df0.chunk.js",
+    "static/js/2.93d327f8.chunk.js": "/ataberk-tumay/static/js/2.93d327f8.chunk.js",
     "static/js/3.55a73b9f.chunk.js": "/ataberk-tumay/static/js/3.55a73b9f.chunk.js",
     "index.html": "/ataberk-tumay/index.html",
-    "static/js/2.96d90df0.chunk.js.LICENSE.txt": "/ataberk-tumay/static/js/2.96d90df0.chunk.js.LICENSE.txt"
+    "static/js/2.93d327f8.chunk.js.LICENSE.txt": "/ataberk-tumay/static/js/2.93d327f8.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.7a7671c3.js",
-    "static/js/2.96d90df0.chunk.js",
+    "static/js/2.93d327f8.chunk.js",
     "static/css/main.000b55a6.chunk.css",
-    "static/js/main.6f60a1da.chunk.js"
+    "static/js/main.8f4e0502.chunk.js"
   ]
 }
