@@ -12,7 +12,7 @@ export default function AddTodo(props) {
   function submitForm(e) {
     e.preventDefault();
     props.setTodos((todos) => {
-      return todos.concat(todo);
+      return todos.concat({...todo, id: nanoid()});
     });
     setTodo({
       ...todo,

@@ -11,7 +11,7 @@ export default function Footer({ setFilter, todos, setTodos }) {
       <footer className="footer">
         {/* <!-- This should be `0 items left` by default --> */}
         <span className="todo-count">
-          <strong>{todos.length} </strong>
+          <strong>{todos.filter(item => item.completed === false).length} </strong>
           items left
         </span>
 

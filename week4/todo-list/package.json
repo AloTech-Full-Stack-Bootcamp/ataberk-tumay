@@ -1,6 +1,5 @@
 {
   "name": "todo-list",
-  "homepage": "https://alotech-full-stack-bootcamp.github.io/ataberk-tumay/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
