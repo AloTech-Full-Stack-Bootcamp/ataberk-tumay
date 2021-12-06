@@ -7,10 +7,10 @@ def random_number_generator_while(n, l):
         number = random.randrange(10 ** (l - 1), 10 ** l - 1)
         if number not in numberList:
             numberList.append(number)
-    print(numberList)
+            yield number
 
 
-random_number_generator_while(21, 3)
+print(list(random_number_generator_while(5, 3)))
 
 
 # second assignment. increase input by 1 and reverse the return value
