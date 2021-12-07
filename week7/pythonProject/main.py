@@ -13,7 +13,7 @@ def random_number_generator_while(n, l):
     else:
         yield "Error"
 
-print(list(random_number_generator_while(9, 1)))
+print(list(random_number_generator_while(90, 2)))
 
 
 # second assignment. increase input by 1 and reverse the return value
