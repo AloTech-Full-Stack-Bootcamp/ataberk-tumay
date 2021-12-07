@@ -3,14 +3,17 @@ import random
 
 def random_number_generator_while(n, l):
     numberList = []
-    while len(numberList) < n:
-        number = random.randrange(10 ** (l - 1), 10 ** l - 1)
-        if number not in numberList:
-            numberList.append(number)
-            yield number
+    limit = n
+    if n < (10**l-(10 ** (l - 1))+1):
+        while len(numberList) < limit:
+            number = random.randrange(10 ** (l - 1), 10 ** l)
+            if number not in numberList:
+                numberList.append(number)
+                yield number
+    else:
+        yield "Error"
 
-
-print(list(random_number_generator_while(5, 3)))
+print(list(random_number_generator_while(9, 1)))
 
 
 # second assignment. increase input by 1 and reverse the return value
