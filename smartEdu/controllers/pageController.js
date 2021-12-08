@@ -16,3 +16,10 @@ exports.getRegisterPage = (req, res) => {
   });
 };
 
+exports.getLoginPage = (req, res) => {
+  res.render("login", {
+    pageName: "login",
+  });
+};
+
+
