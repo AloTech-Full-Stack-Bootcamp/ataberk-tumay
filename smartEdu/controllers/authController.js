@@ -43,7 +43,6 @@ exports.getDashboardPage = async (req, res) => {
   try {
     let id = req.session.userID;
     let user = await User.findById(id);
-    console.log(user);
     res.render("dashboard", {
       pageName: "dashboard",
       user: user,
