@@ -23,6 +23,7 @@ exports.getAllCourses = async (req, res) => {
   try {
 
     const categorySlug = req.query.categories;
+    const query = req.query.search;
     const category = await Category.findOne({slug: categorySlug});
 
     filter = {};
@@ -30,8 +31,20 @@ exports.getAllCourses = async (req, res) => {
     if(category){
       filter = {category: category._id}
     }
+    if(query){
+      filter = {name: query}
+    }
+    if(!query && !category){
+      filter.name = "";
+      filter.category = null;
+    }
 
-    const courses = await Course.find(filter).sort("-createdAt");
+    const courses = await Course.find({
+      $or: [
+        {name:{$regex:".*"+filter.name + ".*", $options :"i"}},
+        {category: filter.category}
+      ]
+    }).sort("-createdAt").populate("user");
     const categories = await Category.find();
 
     res.status(200).render("courses", {
@@ -49,11 +62,15 @@ exports.getAllCourses = async (req, res) => {
 
 exports.getCourse = async (req, res) => {
   try {
+    const user = await User.findById(req.session.userID);
     const course = await Course.findOne({slug:req.params.slug}).populate("user");
+    const categories = await Category.find();
     
     res.status(200).render("courseSingle", {
       course,
       pageName: "courses",
+      user,
+      categories,
     });
   } catch (error) {
     res.status(400).json({
@@ -66,6 +83,21 @@ exports.enrollCourse = async (req, res) => {
   try {
     const user = await User.findById(req.session.userID)
     await user.courses.push({_id:req.body.course_id});
+    await user.save();
+    
+    res.status(201).redirect("/users/dashboard");
+
+  } catch (error) {
+    res.status(400).json({
+      status: "fail",
+      error,
+    });
+  }
+};
+exports.releaseCourse = async (req, res) => {
+  try {
+    const user = await User.findById(req.session.userID)
+    await user.courses.pull({_id:req.body.course_id});
     await user.save();
     
     res.status(201).redirect("/users/dashboard");
