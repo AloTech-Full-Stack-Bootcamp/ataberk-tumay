@@ -8,6 +8,14 @@ class Post(models.Model):
   author = models.ForeignKey(User, on_delete=models.CASCADE)
   created_at = models.DateTimeField(auto_now_add=True)
 
+  @property
+  def likes_count(self):
+    return self.likes.count()
+
+  @property
+  def comments_count(self):
+    return self.comments.count()
+
   def __str__(self):
     return f"{self.content} posted by {self.author}" 
 
@@ -17,9 +25,9 @@ class Like(models.Model):
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   created_at = models.DateTimeField(auto_now_add=True)
 
-
   def __str__(self):
-    return f"{self.post} liked by {self.user}" 
+    return f"{self.post.content} liked by {self.user}"
+
 
 
 class Comment(models.Model):
@@ -30,4 +38,4 @@ class Comment(models.Model):
 
 
   def __str__(self):
-    return f"{self.post} commented by {self.user}"
+    return f"{self.content} commented by {self.user}"
