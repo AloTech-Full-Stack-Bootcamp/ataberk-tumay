@@ -10,12 +10,12 @@ const categoryRoute = require("./routes/categoryRoute");
 const userRoute = require("./routes/userRoute");
 
 const app = express();
-const PORT = "3000";
+const PORT = process.env.PORT || "3000";
 //%
 
 //connect to db
 mongoose
-  .connect("mongodb://localhost/smartedu-db", {
+  .connect("mongodb+srv://ataberktumay:2MPxxNXeslVRC8Ce@cluster0.hyzt1.mongodb.net/smartedu-db?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
