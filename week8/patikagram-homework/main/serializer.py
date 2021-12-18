@@ -8,11 +8,15 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['url', 'username', 'email', 'is_staff']
 
 class PostSerializer(serializers.HyperlinkedModelSerializer):
+    author = serializers.SlugRelatedField(
+        read_only=True,
+        slug_field='username'
+    )
     class Meta:
         model = Post
         fields = ['id', 'author', 'content', 'image', "created_at"]
 
-class LikeSerializer(serializers.HyperlinkedModelSerializer):
+class LikeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Like
         fields = ['id', 'post', 'user', "created_at"]
